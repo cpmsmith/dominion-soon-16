@@ -1,0 +1,27 @@
+@import url('artbrush-fontkit/stylesheet.css');
+
+$artbrush: 'ArtBrush', 'Brush Script Std', sans-serif;
+$red: #ED302E;
+
+body {
+  background: #f9f0cb url('../img/fallback/bg-texture.gif') 0 0 repeat;
+  background-image: url('../img/bg-texture.svg'), none;
+  background-size: cover;
+  font-size: 24px;
+}
+
+.text-content {
+  font-family: $artbrush;
+  font-size: 1em;
+  line-height: 1.4;
+  color: $red;
+}
+
+.dc-logo {
+  width: 129px;
+  max-width: 90%;
+}
+
+.stubby-body {
+  width: 431px;
+}
