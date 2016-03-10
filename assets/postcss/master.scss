@@ -1,20 +1,67 @@
-@import url('artbrush-fontkit/stylesheet.css');
+@import "partials/reset";
+@import "partials/artbrush-fontkit";
 
-$artbrush: 'ArtBrush', 'Brush Script Std', sans-serif;
+$artbrush: 'artbrushmedium', 'Brush Script Std', sans-serif;
 $red: #ED302E;
+$mobile: 768px;
+
+@define-mixin clearfix {
+  &::after {
+    content: " ";
+    display: table;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+    margin-bottom: -2px;
+  }
+}
 
 body {
   background: #f9f0cb url('../img/fallback/bg-texture.gif') 0 0 repeat;
-  background-image: url('../img/bg-texture.svg'), none;
+  // background-image: url('../img/bg-texture.svg'), none;
   background-size: cover;
   font-size: 24px;
+  padding: 3.5em;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0;
+  border: 0.2em solid $red;
+  max-width: 1049px;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  @mixin clearfix;
 }
 
 .text-content {
+  float: right;
+  width: 40%;
+  padding: 2em 2em 0 0;
+  box-sizing: border-box;
+  color: $red;
   font-family: $artbrush;
   font-size: 1em;
   line-height: 1.4;
-  color: $red;
+  text-align: center;
+
+  @media (max-width: $mobile) {
+    float: none;
+    width: 100%;
+    margin: 2em 0 1em;
+    padding: 0 2em;
+  }
+
+  p {
+    margin: 1em 0;
+  }
+}
+
+.discretionary-br {
+  @media (max-width: 1150px) {
+    display: none;
+  }
 }
 
 .dc-logo {
@@ -22,6 +69,49 @@ body {
   max-width: 90%;
 }
 
+.stubby-container {
+  float: left;
+  box-sizing: border-box;
+  width: 60%;
+  height: 100%;
+  margin: 0;
+  padding: 0 1em 0 0;
+  position: relative;
+  text-align: right;
+
+  @media (max-width: $mobile) {
+    float: none;
+    width: 100%;
+  }
+}
+
 .stubby-body {
+  display: inline-block;
+  vertical-align: bottom;
+  margin-top: 27%;
   width: 431px;
+
+  @media (max-width: $mobile) {
+    max-width: 70%;
+  }
+}
+
+.stubby-bubble {
+  width: 496px;
+  position: absolute;
+  top: 5%;
+  left: -7%;
+  max-width: 80%;
+}
+
+.big-cta {
+  text-decoration: none;
+  display: block;
+  margin: 0.5em 0;
+
+  img, object {
+    width: 260px;
+    height: auto;
+    max-width: 90%;
+  }
 }
