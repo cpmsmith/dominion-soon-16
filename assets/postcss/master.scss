@@ -1,9 +1,12 @@
-@import "partials/reset";
-@import "partials/artbrush-fontkit";
-
 $artbrush: 'artbrushmedium', 'Brush Script Std', sans-serif;
 $red: #ED302E;
+$white: #f9f0cb;
+$tablet: 1024px;
 $mobile: 768px;
+
+@import "partials/reset";
+@import "partials/modal";
+@import "partials/artbrush-fontkit";
 
 @define-mixin clearfix {
   &::after {
@@ -13,16 +16,19 @@ $mobile: 768px;
     visibility: hidden;
     line-height: 0;
     height: 0;
-    margin-bottom: -2px;
   }
 }
 
 body {
-  background: #f9f0cb url('../img/fallback/bg-texture.gif') 0 0 repeat;
-  // background-image: url('../img/bg-texture.svg'), none;
+  background: $white url('../img/bg-texture.gif') 0 0 repeat;
   background-size: cover;
   font-size: 24px;
   padding: 3.5em;
+  width: unset!important;
+
+  @media (max-width: $mobile) {
+    padding: 1em;
+  }
 }
 
 .container {
@@ -54,7 +60,7 @@ body {
   }
 
   p {
-    margin: 1em 0;
+    margin: 1.5em 0;
   }
 }
 
@@ -79,9 +85,14 @@ body {
   position: relative;
   text-align: right;
 
+  @media (max-width: $tablet) {
+    padding-right: 0;
+  }
+
   @media (max-width: $mobile) {
     float: none;
     width: 100%;
+    padding-right: 1em;
   }
 }
 
@@ -108,10 +119,26 @@ body {
   text-decoration: none;
   display: block;
   margin: 0.5em 0;
+  padding: 0;
+  cursor: pointer;
 
-  img, object {
+  img, object, svg, body {
+    display: inline-block;
     width: 260px;
-    height: auto;
+    height: 63px;
     max-width: 90%;
+    padding: 0;
+  }
+
+  &:hover object {
+    .a {
+
+      fill: #f6ecc9;
+      strokedddd: #ed302e;
+      stroke-width: 10px;
+    }
+    .b {
+      fill: #ed302e;
+    }
   }
 }

@@ -1,0 +1,45 @@
+#modal-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0;
+  display: none;
+}
+
+#modal-box {
+  display: none;
+  width: 90%;
+  max-width: 640px;
+  position: fixed;
+  top: 15vh;
+  left: 50%;
+  padding: 1em 0;
+  transform: translateX(-50%);
+  background-color: $white;
+
+  input.button {
+    background-color: $red;
+    border: 3px solid $red;
+    height: auto;
+
+    &:hover {
+      color: $red;
+      background-color: $white;
+    }
+  }
+}
+
+#modal-close {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  font-family: sans-serif;
+  font-size: 0.75em;
+  font-weight: bold;
+  color: $red;
+  cursor: pointer;
+  z-index: 9999;
+}

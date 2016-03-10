@@ -20,7 +20,7 @@ gulp.task('serve',['postcss'], function() {
     server: './'
     });
 
-  gulp.watch('assets/postcss/*.scss', ['postcss']);
+  gulp.watch('assets/postcss/**/*.{scss,css}', ['postcss']);
   gulp.watch('*.html').on('change', browserSync.reload);
 });
 
@@ -44,16 +44,14 @@ gulp.task('crush', function() {
  */
 gulp.task('postcss', function () {
   return gulp.src('./assets/postcss/*.scss')
-  .pipe(sourcemaps.init())
   .pipe(postcss([ 
-    autoprefixer({ browsers: ['last 2 versions'] }),
-    precss()
+    precss(),
+    autoprefixer({ browsers: ['last 2 versions', 'ie 9', 'ie 10', 'ie 8'] })
   ]))
-  .pipe(nano())
+  .pipe(nano({autoprefixer: false}))
   .pipe(rename({extname:'.css'}))
   .pipe(gulp.dest('./assets/css/'))
-  .pipe(browserSync.stream())
-  .pipe(sourcemaps.write('.'));
+  .pipe(browserSync.stream());
 });
 
 gulp.task('default',['serve']);
