@@ -19,12 +19,18 @@ $mobile: 768px;
   }
 }
 
+html {
+  min-height: 100%;
+}
+
 body {
   background: $white url('../img/bg-texture.gif') 0 0 repeat;
   background-size: cover;
   font-size: 24px;
   padding: 3.5em;
   width: unset!important;
+  min-height: 100%;
+  position: relative;
 
   @media (max-width: $mobile) {
     padding: 1em;
@@ -141,4 +147,20 @@ body {
       fill: #ed302e;
     }
   }
+}
+
+.texture-foreground {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  pointer-events: none;
+  background-image: url('../img/fg-texture.png');
+  background-size: cover;
+}
+
+html.ie .texture-foreground {
+  display: none;
 }
